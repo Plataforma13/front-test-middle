@@ -57,7 +57,7 @@ Desta forma evita-se que seja realizado o processamento a cada caractere digitad
 2.5) Por quê é importante diminuir a quantidade de watchers do angular em uma página e como fazer?
 
 Cada watcher representa um processamento a mais que o AngularJS fará em seu "digest cycle. Diminuir a quantidade de watchers resulta em aumento da performance e diminuição de uso de memória de sua aplicação.
-Para diminuir os watchers é possivel por exemplo utilizar one-time binding (`{{ ::valor }}`), no qual o valor será uma model será lido apenas uma vez. Ex.: `<h1>{{ ::titulo }}</h1>.
+Para diminuir os watchers é possivel por exemplo utilizar one-time binding (`{{ ::valor }}`), no qual o valor será uma model será lido apenas uma vez. Ex.: `<h1>{{ ::titulo }}</h1>`.
 Outras formas incluem utilizar ng-if ao invés de ng-show e evitar o uso de ng-repeat quando desnecessário.
 
 2.6) Por quê é importante evitar escopos isolados em diretivas do angular e como fazer?
