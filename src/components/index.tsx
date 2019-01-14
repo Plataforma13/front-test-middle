@@ -1,5 +1,5 @@
-import ExampleComponent from './ExampleComponent';
+import HighlightDestiny from './HighlightDestiny';
 
 export {
-	ExampleComponent,
+	HighlightDestiny,
 };

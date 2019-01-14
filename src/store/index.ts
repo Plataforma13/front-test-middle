@@ -4,22 +4,26 @@ import { Observable } from 'rxjs';
 
 // REDUCERS AND EPICS EXPORTS
 
+import myBookingsReducer, { epics as myBookingsEpics, IState as IMyBookingsState } from './app/booking';
 import appStateReducer, { epics as appStateEpics, init, IState as IAppStateState } from './app/state';
 
 // STORE INTERFACE
 
-export interface IRootState { appState: IAppStateState }
+export interface IRootState { appState: IAppStateState, myBookings: IMyBookingsState }
 
 // COMBINED REDUCERS
 
 const rootReducer = combineReducers<IRootState>({
 	appState: appStateReducer,
+	myBookings: myBookingsReducer,
 });
+
 
 // COMBINED EPICS
 
 const rootEpic = combineEpics(
 	appStateEpics,
+	myBookingsEpics,
 );
 
 export type Epic = (action$: ActionsObservable<Action<any>>, state$: StateObservable<IRootState>) => Observable<Action<any>>;
