@@ -4,7 +4,9 @@
 
 ```js
 // Resposta
-
+Array.prototype.last = function(){
+    return this[this.length -1];
+}
 
 // Teste/Exemplos
 const array1 = [1,2,3,4,5,6,7,8,9]
@@ -49,7 +51,38 @@ function getTransactions() {
 ```
 
 ```js
-// Resposta
+    function getTransactions() {
+        return $q((resolve, reject) => {
+            $http.get(BASE_URL + '/api/transacoes')
+                .then(response => {
+                    if (!response.data.error) {
+                        const transactions = response.data
+                        let _transactions = []
+    
+                        transactions
+                            .filter(transaction => {
+                                transaction.realizada
+                            })
+                            .forEach(transaction => {
+                                _transactions.push(defineTransaction(transaction.id, transaction.valor))
+                            });
+                        resolve(_transactions)
+                    } else {
+                        reject(response.data.error)
+                    }
+                })
+                .catch(e => reject(e))
+        })
+    }
+
+    function defineTransaction(id, value){
+        const result = {
+            id,
+            value,
+            type: vaue < 0 ? 'transference' : 'deposit',
+        };
+        return result;
+    }
 ```
 
 ---
@@ -65,21 +98,26 @@ function getTransactions() {
 
 ```html
 <!-- correção -->
+<img ng-src="{{item.img}}" alt="Descrição da imagem">
 ```
 
 3.2)
 ```html
 ...
-<body ng-controller="PageCtrl">
+<body  ng-controller="PageCtrl">
     <h1>{{page.mainTitle}}</h1>
     ...
 </body>
 ```
 
-[Problemas]
+Neste trecho a aplicação angular não estava sendo inicializada, por isso inseri a diretiva ng-app.
+Também modifiquei a chamada da controller pois é uma boa prática usar a funcionalidade ControllerAs.
 
 ```html
-<!-- correção -->
+<body ng-app="app" ng-controller="PageCtrl as page">
+    <h1>{{page.mainTitle}}</h1>
+    ...
+</body>
 ```
 
 3.3)
@@ -97,10 +135,22 @@ function getTransactions() {
 </body>
 ```
 
-[Problemas]
+Fiz as modificações como na questão anterior.
+Alterei a tag do texto "Cadastre-se na nossa news semanal!" pois aparentemente se trata de um título, não um parágrafo.
+Inseri o atributo required na tag `input` o que evita a evita a verificação do email para validação na chamada da diretiva `ng-click`.
+
 
 ```html
-<!-- correção -->
+<body ng-app="app" ng-controller="NewsletterCtrl as news">
+    <div class="box">
+        <h1>Cadastre-se na nossa news semanal!</h1>
+        <input ng-model="news.email" type="email" required>
+        <button ng-click="news.registerNewsletter(news.email)">
+            Cadastrar
+        </button>
+    </div>
+    ...
+</body>
 ```
 
 3.4)
