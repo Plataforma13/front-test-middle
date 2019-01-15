@@ -178,6 +178,7 @@ Outra vantagem de ES modules é a sintaxe mais simples.
 ---
 
 6\) Cite as principais diferenças entre um componente e uma diretiva no AngularJS.
+
 Um componente é apropriado para construção de elementos que podem ser facilmente reutilizáveis na construção de uma aplicação com arquitetura baseada em componentes.
 Além disso um componente não possui a função link, sempre teve possuir um template e possui um escopo isolado.
 Já uma diretiva é apropriada quando é necessário manipular o DOM ou trabalhar com eventos por exemplo.
