@@ -4,7 +4,9 @@
 
 ```js
 // Resposta
-
+Array.prototype.last = function() {
+    return this[this.length - 1];
+};
 
 // Teste/Exemplos
 const array1 = [1,2,3,4,5,6,7,8,9]
@@ -61,10 +63,11 @@ function getTransactions() {
 <img src="{{item.img}}">
 ```
 
-[Problemas]
+Para acessar um dado do angular, é necessário usar a sintaxe do angular, nesse caso ng-src
 
 ```html
 <!-- correção -->
+<img ng-src="{{item.img}}">
 ```
 
 3.2)
@@ -76,10 +79,14 @@ function getTransactions() {
 </body>
 ```
 
-[Problemas]
+Para se usar um alias é necessário explicitá-lo
 
 ```html
 <!-- correção -->
+<body ng-controller="PageCtrl as page">
+    <h1>{{page.mainTitle}}</h1>
+    ...
+</body>
 ```
 
 3.3)
@@ -97,10 +104,20 @@ function getTransactions() {
 </body>
 ```
 
-[Problemas]
+É uma boa prática tratar campos vazios e outras validações dentro dos métodos,  no caso verificariamos se o campo 'email' está preenchido no método registerNewsletter()
 
 ```html
 <!-- correção -->
+<body ng-controller="NewsletterCtrl">
+    <div class="box">
+        <p>Cadastre-se na nossa news semanal!</p>
+        <input ng-model="email" type="email">
+        <button ng-click="email && registerNewsletter(email)">
+            Cadastrar
+        </button>
+    </div>
+    ...
+</body>
 ```
 
 3.4)
@@ -111,10 +128,14 @@ function HomeCtrl($scope) {
 
 ```
 
-[Problemas]
+A forma de declarar um controller está errada
 
 ```js
 //correção
+var app = angular.module('myApp', []);
+app.controller('HomeCtrl', function($scope) {
+    $scope.foo = 'bar';
+});
 ```
 
 ---

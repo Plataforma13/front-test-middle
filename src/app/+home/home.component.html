@@ -1,0 +1,17 @@
+<h1>Your Flights</h1>
+<div fxLayoutAlign="center" [@routeAnimation] style="background: #0D0D18;">
+
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>My bookings</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <div ng-for="data in flightData">
+                Upcoming
+                {{ data.destination }}
+                <img ng-src="data.thumb">
+                
+            </div>
+        </mat-card-content>
+    </mat-card>
+</div>
