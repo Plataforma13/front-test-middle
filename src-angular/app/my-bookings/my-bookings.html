@@ -1,0 +1,22 @@
+<div class="container">
+    <div class="header">
+      <h1 class="text-heading">My bookings</h1>
+      <i class="fas fa-cog upright-button"></i>
+    </div>
+
+    <br class="clear">
+
+    <h2 class="text-heading-sub">UPCOMING</h2>
+    <ul id="upcoming-flights-list" class="flight-card-list">
+        <li ng-repeat="flight in myBookings.upcomingFlights">
+            <booking-card booking="flight">
+        </li>
+    </ul>
+    
+    <h2 class="text-heading-sub">PAST</h2>
+    <ul id="past-flights-list" class="flight-card-list">
+        <li ng-repeat="flight in myBookings.pastFlights">
+            <booking-card booking="flight">
+        </li>
+    </ul>
+  </div>
