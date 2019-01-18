@@ -13,6 +13,9 @@ console.log(array1.last()) //9
 const array2 = []
 console.log(array2.last()) //undefined
 ```
+array2.__proto__.last = array2.pop()
+console.log(array2.last)
+
 
 ---
 
@@ -50,7 +53,40 @@ function getTransactions() {
 
 ```js
 // Resposta
-```
+function getTransactions() {
+    return $q((resolve, reject) => {
+        $http.get(BASE_URL + '/api/transacoes')
+            .then(response => {
+                if (!response.data.error) {
+                    const transactions = response.data
+
+                 transactions =  transactions.map(
+                        (obj) => { 
+                           let aux = {
+                                id: obj.id,
+                                value: obj.valor,
+                                type: obj.valor < 0 ? 'transference' : 'deposit',
+                            }
+                             
+
+                            return aux;
+                            
+                            
+                            }).then((e)=>{
+                                 resolve(_transactions)
+                            }); 
+
+
+                   
+                } else {
+                    reject(response.data.error)
+                }
+            })
+            .catch(e => reject(e))
+    })
+}
+
+
 
 ---
 
@@ -63,8 +99,15 @@ function getTransactions() {
 
 [Problemas]
 
+fechar a tag.
+"item.img" tem sentido se fosse usando um for.
+
+
 ```html
 <!-- correção -->
+
+<img src="{{item.img}}"/>
+
 ```
 
 3.2)
@@ -78,8 +121,15 @@ function getTransactions() {
 
 [Problemas]
 
+"page.mainTitle" tem sentido se fosse usando um for.
+
 ```html
 <!-- correção -->
+
+<body ng-controller="PageCtrl">
+    <h1>{{mainTitle}}</h1>
+    ...
+</body>
 ```
 
 3.3)
@@ -99,8 +149,15 @@ function getTransactions() {
 
 [Problemas]
 
+ng-click nao deve ser usada assim como condição.
+
 ```html
 <!-- correção -->
+
+        <button ng-click="registerNewsletter(email)">
+            Cadastrar
+        </button>
+
 ```
 
 3.4)
@@ -113,9 +170,15 @@ function HomeCtrl($scope) {
 
 [Problemas]
 
+tem que pegar a variavel passada no ng-click.
+
 ```js
 //correção
 ```
+function HomeCtrl(email) {
+    $scope.foo = 'bar'
+}
+
 
 ---
 
@@ -127,3 +190,5 @@ https://5ba412108da2f20014654cf8.mockapi.io/api/v1/flights
 4.2) Implementar a listagem de voos (tela "My bookings"):
 
 ![Layout](https://mir-s3-cdn-cf.behance.net/project_modules/1400/f21c0250028109.58ced3cbd06b1.jpg)
+
+infelizmente não tenho tempo pra fazer trabalho amanha.
