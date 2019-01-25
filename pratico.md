@@ -5,6 +5,9 @@
 ```js
 // Resposta
 
+Array.prototype.last = function(){
+    return this[this.length -1];
+}
 
 // Teste/Exemplos
 const array1 = [1,2,3,4,5,6,7,8,9]
@@ -51,7 +54,38 @@ function getTransactions() {
 ```js
 // Resposta
 ```
+function getTransactions() {
+    return $q((resolve, reject) => {
+        $http.get(BASE_URL + '/api/transacoes')
+            .then(response => {
+                if (!response.data.error) {
+                    const transactions = response.data
 
+                    let _transactions = []
+
+                   transactions =  transactions.map(
+                        (transaction) => { 
+                           let item = {
+                                id: transaction.id,
+                                value: transaction.valor,
+                                type: transaction.valor < 0 ? 'transference' : 'deposit',
+                            }
+                             
+                            return item;
+                            
+                            
+                            }).then((e)=>{
+                                 resolve(_transactions)
+                    }); 
+
+                    resolve(_transactions)
+                } else {
+                    reject(response.data.error)
+                }
+            })
+            .catch(e => reject(e))
+    })
+}
 ---
 
 3\) Identifique problemas nos trechos de html/angular a seguir e corrija:
@@ -66,7 +100,7 @@ function getTransactions() {
 ```html
 <!-- correção -->
 ```
-
+<img src="{{item.img}}" alt="descricao">
 3.2)
 ```html
 ...
@@ -81,6 +115,10 @@ function getTransactions() {
 ```html
 <!-- correção -->
 ```
+<body ng-app="app" ng-controller="PageCtrl">
+    <h1>{{page.mainTitle}}</h1>
+    ...
+</body>
 
 3.3)
 ```html
@@ -102,6 +140,16 @@ function getTransactions() {
 ```html
 <!-- correção -->
 ```
+<body ng-controller="NewsletterCtrl">
+    <div class="box">
+        <p>Cadastre-se na nossa news semanal!</p>
+        <input ng-model="email" type="email">
+        <button ng-click="registerNewsletter(email)">
+            Cadastrar
+        </button>
+    </div>
+    ...
+</body>
 
 3.4)
 ```js
