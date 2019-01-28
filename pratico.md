@@ -3,8 +3,9 @@
 1\) Adicione o método `.last()` na classe `Array`, que retornará o último item do array, ou `undefined` caso o array estiver vazio
 
 ```js
-// Resposta
-
+Array.prototype.last = function(){
+    return this == [] ? undefined : this[this.length -1];
+}
 
 // Teste/Exemplos
 const array1 = [1,2,3,4,5,6,7,8,9]
@@ -61,10 +62,11 @@ function getTransactions() {
 <img src="{{item.img}}">
 ```
 
-[Problemas]
+data-binding necessário somente pra leitura.
+imagem sem texto alternativo
 
 ```html
-<!-- correção -->
+<img src="{{::item.img}}" alt="{{::item.name}}">
 ```
 
 3.2)
@@ -76,10 +78,12 @@ function getTransactions() {
 </body>
 ```
 
-[Problemas]
+Aplicação não declarada
 
 ```html
-<!-- correção -->
+<body ng-app="app" ng-controller="PageCtrl">
+    <h1>{{page.mainTitle}}</h1>
+</body>
 ```
 
 3.3)
@@ -97,10 +101,20 @@ function getTransactions() {
 </body>
 ```
 
-[Problemas]
+Aplicação não declarada.
+ng-click chamando model.
+botão habilitado sem dados.
 
 ```html
-<!-- correção -->
+<body ng-app="app" ng-controller="NewsletterCtrl">
+    <div class="box">
+        <p>Cadastre-se na nossa news semanal!</p>
+        <input ng-model="email" type="email">
+        <button ng-disabled="!email" ng-click="registerNewsletter(email)">
+            Cadastrar
+        </button>
+    </div>
+</body>
 ```
 
 3.4)

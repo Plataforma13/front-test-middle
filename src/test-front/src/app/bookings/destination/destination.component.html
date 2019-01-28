@@ -1,0 +1,6 @@
+<div class="destination-wrapper" [style.backgroundImage]="'url('+ destination.thumb +')'">
+  <a class="destination">
+    <span>{{ destination.destination }}</span>
+    <span>{{ destination.inboundDate | date: 'dd MMM' }} - {{ destination.outboundDate | date: 'dd MMM' }}</span>
+  </a>
+</div>

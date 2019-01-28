@@ -1,0 +1,28 @@
+.bars-wrapper{
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: #1D2029;
+  height: 55px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.bars-item{
+  cursor: not-allowed;
+  color: #999;
+  text-align: center;
+  font-size: 0.8rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 2px solid transparent;
+  flex-grow: 1;
+}
+
+.bars-item.is-active{
+  cursor: initial;
+  color: #fff;
+  border-bottom-color: #14DECA;
+}

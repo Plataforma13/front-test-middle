@@ -1,5 +1,8 @@
 # Node
-Versão escolhida: 6.x | 8.x | 10.x
+Versão escolhida: 8.9.4
 
 # Instruções para rodar o projeto
-(Sugestão: `npm start`)
+Necessário angular CLI 7
+dentro da pasta src/test-front:
+npm install
+ng serve --open
