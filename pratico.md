@@ -50,8 +50,29 @@ function getTransactions() {
 
 ```js
 // Resposta
+ async function getTransactions () {
+  return $q((resolve, reject) => {
+    $http.get(BASE_URL + '/api/transactions')
+      .then(response => {
+        const _transactions = [];
+        const { data } = response;
+        data.forEach(i => {
+          _transactions.push({
+            id: i.id,
+            value: i.value,
+            type: i.value < 0
+                ? 'transference'
+                : 'deposit'
+          });
+        });
+        resolve(_transactions)
+      })
+      .catch(
+        reject(response.data.error)
+      );
+    });
+ }
 ```
-
 ---
 
 3\) Identifique problemas nos trechos de html/angular a seguir e corrija:
@@ -64,7 +85,7 @@ function getTransactions() {
 [Problemas]
 
 ```html
-<!-- correção -->
+<img [src]="item.img" />
 ```
 
 3.2)
@@ -79,7 +100,10 @@ function getTransactions() {
 [Problemas]
 
 ```html
-<!-- correção -->
+<body ng-controller="PageCtrl">
+    <h1>{{mainTitle}}</h1>
+    ...
+</body>
 ```
 
 3.3)
