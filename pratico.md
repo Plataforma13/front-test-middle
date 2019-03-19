@@ -5,6 +5,9 @@
 ```js
 // Resposta
 
+Array.prototype.last = function() {
+    return this.length ? this[this.length - 1] : undefined
+}
 
 // Teste/Exemplos
 const array1 = [1,2,3,4,5,6,7,8,9]
@@ -50,6 +53,29 @@ function getTransactions() {
 
 ```js
 // Resposta
+
+function getTransactions() {
+    return $q((resolve, reject) => {
+        $http.get(BASE_URL + '/api/transacoes')
+            .then(response => {
+                if (response.data.error) 
+                    reject(response.data.error)
+                const transactions = response.data
+                let _transactions = []
+                transactions.forEach(transaction => {
+                    if (transaction.realizada)  {
+                        _transactions.push({
+                            id: transaction.id,
+                            value: transaction.valor,
+                            type: transaction.valor < 0 ? 'transference' : 'deposit'
+                        })
+                    }    
+                });
+                resolve(_transactions)
+            })
+            .catch(e => reject(e))
+    })
+}
 ```
 
 ---
@@ -61,10 +87,10 @@ function getTransactions() {
 <img src="{{item.img}}">
 ```
 
-[Problemas]
+Falta o atributo alt usado como alternativa para o caso da imagem não ser carregada por qualquer motivo. Além disso o atributo alt é útil para leitores de telas e web crawlers de motores de pesquisa.
 
 ```html
-<!-- correção -->
+<img src="{{item.img}}" alt="{{item.descricao}}">
 ```
 
 3.2)
@@ -76,10 +102,13 @@ function getTransactions() {
 </body>
 ```
 
-[Problemas]
+O a expressão que preenche o título não usa o nome correto para referenciar ao controller definido para o elemento.
 
 ```html
-<!-- correção -->
+<body ng-controller="PageCtrl as page">
+    <h1>{{page.mainTitle}}</h1>
+    ...
+</body>
 ```
 
 3.3)

@@ -1,0 +1,22 @@
+{
+  "name": "booking-app",
+  "version": "1.0.0",
+  "description": "Pagina desenvolvida como teste para uma oportunidade de emprego na 123milhas",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JosoeSantos/front-test-middle.git"
+  },
+  "author": "jssantosqueiroz@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JosoeSantos/front-test-middle/issues"
+  },
+  "homepage": "https://github.com/JosoeSantos/front-test-middle#readme",
+  "dependencies": {
+    "angular": "^1.7.8"
+  }
+}
