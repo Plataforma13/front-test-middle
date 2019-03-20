@@ -1,0 +1,138 @@
+:root {
+  --color-primary: #13131f;
+  --color-primary-light: #1d2029;
+  --color-text-primary: #fff;
+  --color-accent: #14dfcb;
+}
+
+body {
+  font-family: 'Nunito', sans-serif;
+  background-color: var(--color-primary);
+  color: var(--color-text-primary);
+  min-height: 100vh;
+  margin: 0;
+  padding: 1rem 1rem 100px;
+}
+
+.icon {
+  stroke: white;
+  fill: white;
+}
+
+.bottom-navigation {
+  background-color: var(--color-primary-light);
+  position: fixed;
+  height: 80px;
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, .4);
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  display: flex;
+}
+
+.bottom-navigation > .navbar-link {
+  flex: 1 0 auto;
+}
+
+.navbar-link {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: .7;
+
+}
+.navbar-link:not(:first-child){
+  margin-left: 5px;
+}
+
+.navbar-link .icon {
+  margin-bottom: 8px;
+}
+
+.navbar-link.active {
+  opacity: 1;
+  border-bottom: 2px solid var(--color-accent);
+}
+
+.bookings-header {
+  display: grid;
+  grid-template-columns: 1fr auto;
+
+}
+
+.bookings-header-title {
+  font-size: 1.4rem;
+  text-align: center;
+  grid-column: 1/-1;
+  grid-row: 1/2;
+}
+
+.bookings-header-settings {
+  grid-column: 2/3;
+  grid-row: 1/2;
+  align-self: center;
+}
+
+.bookings-list {
+  margin-top: 1rem;
+}
+
+.bookings-list > .list-title {
+  opacity: .5;
+  font-size: 1rem;
+  text-transform: uppercase;
+}
+
+.bookings-list > ul {
+  margin: 0;
+  padding: 0;
+}
+
+.bookings-list-item {
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, .4);
+  list-style: none;
+  height: 140px;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  background-color: var(--color-primary-light);
+}
+
+.bookings-list-item:not(:first-child) {
+  margin-top: 1rem;
+}
+
+.bookings-list-item .thumbnail {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background-color: rgba(0, 0, 0, .1);
+  border-radius: 5px;
+}
+
+.bookings-list-item > .details {
+  box-sizing: border-box;
+  position: absolute;
+  padding: 12px 8px;
+  font-weight: bold;
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+  background-image: linear-gradient(to top, rgba(0, 0, 0, .8), rgba(0, 0, 0, .05));
+  display: grid;
+  grid-template-columns: 1fr auto;
+}
+
+.bookings-list-item .title {
+  font-size: 1.3rem;
+  align-self: end;
+}
+
+.bookings-list-item .date {
+  align-self: end;
+}
+

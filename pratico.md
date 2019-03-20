@@ -102,13 +102,10 @@ Falta o atributo alt usado como alternativa para o caso da imagem não ser carre
 </body>
 ```
 
-O a expressão que preenche o título não usa o nome correto para referenciar ao controller definido para o elemento.
+[Problemas]
 
 ```html
-<body ng-controller="PageCtrl as page">
-    <h1>{{page.mainTitle}}</h1>
-    ...
-</body>
+
 ```
 
 3.3)

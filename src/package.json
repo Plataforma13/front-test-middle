@@ -4,7 +4,8 @@
   "description": "Pagina desenvolvida como teste para uma oportunidade de emprego na 123milhas",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "http-server ./ -p 3000"
   },
   "repository": {
     "type": "git",
@@ -18,5 +19,7 @@
   "homepage": "https://github.com/JosoeSantos/front-test-middle#readme",
   "dependencies": {
     "angular": "^1.7.8"
+  },
+  "devDependencies": {
   }
 }
