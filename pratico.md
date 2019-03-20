@@ -123,10 +123,19 @@ Falta o atributo alt usado como alternativa para o caso da imagem não ser carre
 </body>
 ```
 
-[Problemas]
+O formulário não usa alguns recursos úteis oferecidos pelo HTML5. Primeiramente o elemento com a classe `box` deveria ser um um formulário. Falta o atributo `required` para evitar que o usuário envie o formulário com o campo vazio. Por fim o botão submit deveria ter o atributo `type` melhorando a acessibilidade do formulário e também ativando alguns recursos de validação nativos do navegador. Dessa forma pode-se dispensar a validação do campo de texto.
 
 ```html
-<!-- correção -->
+<body ng-controller="NewsletterCtrl">
+    <form class="box">
+        <p>Cadastre-se na nossa news semanal!</p>
+        <input ng-model="email" type="email" required>
+        <button ng-click="registerNewsletter(email)" type="submit">
+            Cadastrar
+        </button>
+    </form>
+    ...
+</body>
 ```
 
 3.4)

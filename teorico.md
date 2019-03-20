@@ -108,9 +108,8 @@ somePromise()
 
 ```
 
-Alguns milissegundos, isso porque os métodos `doSomething()` e `doSomethingElse()` serão executados paralelamente aos blocos `then executado` após `somePromise()`.
+Imediatamente após o retorno da promise de `somePromise`, isso porque os métodos `doSomething()` e `doSomethingElse()` serão executados paralelamente aos blocos `then ` executado após `somePromise()`.
 
-// TODO Melhorar a resposta acima
 
 4.2) O que o código a seguir imprime? (Levando em consideração que `somePromise()` vai retornar uma Promise resolvida)
 ```js
