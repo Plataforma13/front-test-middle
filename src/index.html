@@ -14,26 +14,26 @@
 <nav class="navbar bottom-navigation">
 
   <a class="navbar-link">
-    <svg class="icon" xmlns="http://www.w3.org/2000/svg"  width="36px">
+    <svg class="icon ic-36" xmlns="http://www.w3.org/2000/svg">
       <use xlink:href="./assets/icons/simbols.svg#plane"></use>
     </svg>
     <span>Book Flights</span>
   </a>
   <a class="navbar-link">
-    <svg class="icon" xmlns="http://www.w3.org/2000/svg"  width="36px">
+    <svg class="icon ic-36" xmlns="http://www.w3.org/2000/svg" >
       <use xlink:href="./assets/icons/simbols.svg#map"></use>
     </svg>
     <span>Map View</span>
   </a>
   <a class="navbar-link">
-    <svg class="icon" xmlns="http://www.w3.org/2000/svg"  width="36px">
+    <svg class="icon ic-36" xmlns="http://www.w3.org/2000/svg" >
       <use xlink:href="./assets/icons/simbols.svg#target"></use>
     </svg>
     <span>Flight Status</span>
   </a>
   <a class="navbar-link active">
     <!--<img class="navbar-link-icon" src="assets/icons/luggage.svg" alt="mala de viagem">-->
-    <svg class="icon" xmlns="http://www.w3.org/2000/svg"  width="36px">
+    <svg class="icon ic-36" xmlns="http://www.w3.org/2000/svg"  width="36px">
       <use xlink:href="./assets/icons/simbols.svg#luggage"></use>
     </svg>
     <span>My Profile</span>
@@ -42,7 +42,9 @@
 <main>
   <header class="bookings-header">
     <h1 class="bookings-header-title">My bookings</h1>
-    <img class="bookings-header-settings" src="./assets/icons/settings.svg" alt="settings">
+    <svg class="bookings-header-settings icon ic-24">
+      <use xlink:href="./assets/icons/simbols.svg#settings"></use>
+    </svg>
   </header>
   <section class="bookings-lists" ng-controller="ListControler">
     <booking-list title="upcoming"></booking-list>

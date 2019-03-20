@@ -19,6 +19,16 @@ body {
   fill: white;
 }
 
+.ic-36 {
+  width: 36px;
+  max-height: 36px;
+}
+
+.ic-24 {
+  width: 24px;
+  max-height: 24px;
+}
+
 .bottom-navigation {
   background-color: var(--color-primary-light);
   position: fixed;
@@ -43,7 +53,8 @@ body {
   opacity: .7;
 
 }
-.navbar-link:not(:first-child){
+
+.navbar-link:not(:first-child) {
   margin-left: 5px;
 }
 
@@ -92,6 +103,7 @@ body {
 
 .bookings-list-item {
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, .4);
+  border-radius: 5px;
   list-style: none;
   height: 140px;
   width: 100%;
