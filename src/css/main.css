@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+html {
+    background-color: white;
+}
+
+body {
+    margin: 0 auto;
+    width: 667px;
+    height: 100%;
+    font-family: 'Roboto', sans-serif;
+    background-color: #13131f;
+    padding: 30px;
+}
+
+.booking-ls-item {
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+    margin: 0;r
+}
+
+.booking-ls-item img{
+    display: block;
+    width: 100%;
+}
+
+.fixed-bottom {
+    width: 667px;
+    margin: 0 auto;
+    height: 80px;
+}
+
+.navbar .icon {
+  display: inline-block;
+  width: 2em;
+  height: 2em;
+  stroke-width: 0;
+  stroke: currentColor;
+  fill: currentColor;
+}
+
+.navbar a {
+    flex: 1 0 auto;
+}
+
+.navbar-link {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: .7;
+}
+

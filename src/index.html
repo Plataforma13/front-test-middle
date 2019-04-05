@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="mybookings">
+<head>
+    <meta charset="UTF-8">
+    <title>My Bookings</title>
+    <link rel="stylesheet" href="lib/css/bootstrap.css">
+    <link rel="stylesheet" href="css/main.css">
+    <script src="lib/js/bootstrap.js"></script>
+    <script src="lib/js/angular.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/controllers/list-controller.js"></script>
+    <script src="js/controllers/listctrl.js"></script>
+    <link rel="stylesheet" href="https://i.icomoon.io/public/temp/6748a35bfe/UntitledProject/style-svg.css">
+    <script defer src="https://i.icomoon.io/public/temp/6748a35bfe/UntitledProject/svgxuse.js"></script>
+</head>
+<body ng-controller="ListController">
+<h2 class="display-4 text-center text-white">My Bookings</h2>
+<main>
+    <section><h3 class="text-white">Upcoming</h3>
+            <div ng-repeat="booking in upcoming" class="card text-white booking-ls-item">
+                <img src="{{booking.thumb}}" class="card-img">
+                <div class="card-img-overlay row align-items-end text-white">
+                    <div class="col text-left"><h3>{{booking.destination}}</h3></div>
+                        <div class="col text-right"><h4>{{booking.inboundDate}} - {{booking.outboundDate}}</h4></div>
+                </div>
+            </div>
+
+
+    </section>
+    <section>
+            <h3 class="text-white">Past</h3>
+            <div ng-repeat="booking in past" class="card text-white booking-ls-item">
+                <img src="{{booking.thumb}}" class="card-img">
+                <div class="card-img-overlay row align-items-end text-white">
+                    <div class="col text-left"><h3>{{booking.destination}}</h3></div>
+                        <div class="col text-right"><h4>{{booking.inboundDate}} - {{booking.outboundDate}}</h4></div>
+                </div>
+            </div>
+
+
+    </section>
+</main>
+<nav class="navbar fixed-bottom navbar-expand-sm navbar-dark bg-dark">
+  <div class="collapse navbar-collapse text-white" id="navbarCollapse">
+    <a class="navbar-link">
+    <!--<img class="navbar-link-icon" src="assets/icons/luggage.svg" alt="mala de viagem">-->
+    <svg class="icon icon-airplane"><use xlink:href="#icon-airplane"></use></svg>
+    <span>My Profile</span>
+    </a>
+      <a class="navbar-link">
+    <!--<img class="navbar-link-icon" src="assets/icons/luggage.svg" alt="mala de viagem">-->
+    <svg class="icon icon-map2"><use xlink:href="#icon-map2"></use></svg>
+    <span>My Profile</span>
+  </a>
+      <a class="navbar-link">
+    <!--<img class="navbar-link-icon" src="assets/icons/luggage.svg" alt="mala de viagem">-->
+    <svg class="icon icon-target"><use xlink:href="#icon-target"></use></svg>
+    <span>My Profile</span>
+  </a>
+      <a class="navbar-link">
+    <!--<img class="navbar-link-icon" src="assets/icons/luggage.svg" alt="mala de viagem">-->
+    <svg class="icon icon-briefcase"><use xlink:href="#icon-briefcase"></use></svg>
+    <span>My Profile</span>
+  </a>
+  </div>
+</nav>
+</body>
+</html>
