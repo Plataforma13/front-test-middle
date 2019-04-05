@@ -5,6 +5,9 @@
 ```js
 // Resposta
 
+Array.prototype.last = function() {
+    return this[this.length-1];
+};
 
 // Teste/Exemplos
 const array1 = [1,2,3,4,5,6,7,8,9]
@@ -50,6 +53,27 @@ function getTransactions() {
 
 ```js
 // Resposta
+getTransactions() {
+    return $q((resolve, reject) => {
+        $http.get(`${BASE_URL}/api/transacoes`)
+          .then(response => {
+            if (!response.data.error) {
+                let transactions = []
+                response.data.forEach(transaction => {
+                  if (transaction.realizada) {
+                    transactions.push({
+                      id: transaction.id,
+                      value: transaction.valor,
+                      type: transaction.valor < 0 ? 'transference' : 'deposit'
+                    })
+                  }
+                })
+                resolve(transactions)
+            } else reject(response.data.error)
+          })
+          .catch(e => reject(e))
+    })
+  }
 ```
 
 ---
@@ -63,8 +87,11 @@ function getTransactions() {
 
 [Problemas]
 
-```html
+```
 <!-- correção -->
+Pode gerar um erro caso não tenha um valor a propriedade item.img
+Melhor usar a diretiva *ngIF=""
+<img *ngIf="item.img"  src="{{item.img}}"></img>
 ```
 
 3.2)
