@@ -6,11 +6,12 @@ class HttpRequest {
     static request(method, url, params = {}) {
         return new Promise((resolve, reject) => {
             let xhr = new XMLHttpRequest();
-            let response = {};
 
             xhr.open(method, url);
 
             xhr.addEventListener('load', e => {
+                let response = {};
+                
                 try {
                     response = JSON.parse(e.target.responseText);
                     resolve(response);
