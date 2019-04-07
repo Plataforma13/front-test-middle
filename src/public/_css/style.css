@@ -1,0 +1,79 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    text-decoration: none;
+}
+
+body {
+    background: #13131F;
+    font-size: 16pt;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #FFFFFF;
+}
+
+.container {
+    width: 60%;
+    height: auto;
+    margin: 0px auto;
+}
+
+.header {
+    width: 100%;
+    padding: 10px 0px;
+    font-size: .7rem;
+    text-align: center;
+}
+
+.hidden {
+    display: none;
+}
+
+.top-margin {
+    margin-top: 40px;
+}
+
+.bookings-header {
+    font-size: .4rem;
+    padding: 8px 0px;
+}
+
+.bookings {
+    border-radius: 10px;
+    height: 200px;
+    background-size: cover !important;
+    margin: 10px 0px;
+}
+
+.bookings-info {
+    position: relative;
+    top: 160px;
+    padding: 8px 20px;
+    background: rgba(0, 0, 0, .6);
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+.destination {
+    font-size: 1.2rem;
+}
+
+.dates {
+    position: relative;
+    font-size: .8rem;
+    float: right;
+    top: -18px;
+}
+
+@media only screen and (max-width: 799px) {
+    .container {
+        width: 80%;
+    }
+
+    .bookings {
+        height: 120px;
+    }
+
+    .bookings-info {
+        top: 80px;
+    }
+}

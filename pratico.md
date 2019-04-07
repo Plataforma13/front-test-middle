@@ -4,7 +4,9 @@
 
 ```js
 // Resposta
-
+Array.prototype.last = function() {
+    return this[this.length - 1];
+};
 
 // Teste/Exemplos
 const array1 = [1,2,3,4,5,6,7,8,9]
@@ -66,6 +68,8 @@ function getTransactions() {
 ```html
 <!-- correção -->
 ```
+A sintaxe para carregamento da imagem está correta, não cabendo nenhuma correção.
+Realizei alguns testes e todos funcionaram corretamente utilizando esta sintaxe.
 
 3.2)
 ```html
@@ -77,10 +81,20 @@ function getTransactions() {
 ```
 
 [Problemas]
+O atributo 'ng-controller' foi definido na tag html 'body'.
 
 ```html
 <!-- correção -->
+...
+<body>
+    <div ng-controller="PageCtrl">
+        <h1>{{page.mainTitle}}</h1>
+        ...
+    </div>
+</body>
 ```
+
+Para que o controller funcione corretamente, ele deve ser declarado em uma tag 'div' para criar um escopo de ação do controller.
 
 3.3)
 ```html
@@ -98,9 +112,20 @@ function getTransactions() {
 ```
 
 [Problemas]
+O controller foi definido na tag html 'body' e foi definida uma condição no atributo 'ng-click' que deve receber uma ação,
+está ação pode ser inline ou uma função que executará uma ação externamente.
 
 ```html
 <!-- correção -->
+...
+<body>
+    <div ng-controller="NewsletterCtrl" class="box">
+        ...
+        <button ng-click="registerNewsletter(email)">
+            Cadastrar
+        </button>
+    </div>
+</body>
 ```
 
 3.4)
@@ -112,9 +137,14 @@ function HomeCtrl($scope) {
 ```
 
 [Problemas]
+A sintaxe para inicialização do escopo no controller está errada.
 
 ```js
 //correção
+angular.module('App', [])
+.controller('AppController', ['$scope', function($scope) {
+    $scope.foo = 'bar';
+}]);
 ```
 
 ---

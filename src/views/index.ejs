@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+    <head>
+        <title>My Bookings</title>
+        <link rel="stylesheet" href="_css/style.css" />
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="header">
+                <header>
+                    <h1>My Bookings</h1>
+                </header>
+            </div>
+
+            <div class="bookings-container">
+                <div class="upcoming top-margin hidden">
+                    <div class="bookings-header">
+                        <header>
+                            <h1>UPCOMING</h1>
+                        </header>
+                    </div>
+                </div>
+
+                <div class="past top-margin hidden">
+                    <div class="bookings-header">
+                        <header>
+                            <h1>PAST</h1>
+                        </header>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <script src="_js/_classes/Utils.js"></script>
+        <script src="_js/_classes/HttpRequest.js"></script>
+        <script src="_js/_model/Booking.js"></script>
+        <script src="_js/_controller/BookingsController.js"></script>
+        <script src="_js/index.js"></script>
+    </body>
+</html>
